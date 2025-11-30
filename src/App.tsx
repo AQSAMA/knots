@@ -29,8 +29,8 @@ const App: React.FC = () => {
     const [growth, setGrowth] = useState(1);
     const [isPlaying, setIsPlaying] = useState(false);
 
-    const requestRef = useRef<number>();
-    const startTimeRef = useRef<number>();
+    const requestRef = useRef<number | undefined>(undefined);
+    const startTimeRef = useRef<number | undefined>(undefined);
 
     const animate = (time: number) => {
         if (!startTimeRef.current) startTimeRef.current = time;
