@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Sidebar from './components/Sidebar';
 import Scene from './components/Scene';
+import ToggleButton from './components/ToggleButton';
 
 const PRESETS = {
     trefoil: {
@@ -29,8 +30,23 @@ const App: React.FC = () => {
     const [growth, setGrowth] = useState(1);
     const [isPlaying, setIsPlaying] = useState(false);
 
+    // Mobile states
+    const [sidebarOpen, setSidebarOpen] = useState(window.innerWidth > 768);
+    const [isFullscreen, setIsFullscreen] = useState(false);
+
     const requestRef = useRef<number | undefined>(undefined);
     const startTimeRef = useRef<number | undefined>(undefined);
+
+    // Handle window resize for responsive sidebar
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth > 768) {
+                setSidebarOpen(true);
+            }
+        };
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     const animate = (time: number) => {
         if (!startTimeRef.current) startTimeRef.current = time;
@@ -67,24 +83,41 @@ const App: React.FC = () => {
         setIsPlaying(false);
     };
 
+    const togglePlay = () => setIsPlaying(!isPlaying);
+
     return (
-        <div style={{ display: 'flex', width: '100vw', height: '100vh' }}>
+        <div className={`app-container ${isFullscreen ? 'fullscreen-mode' : ''}`}>
+            <ToggleButton
+                isOpen={sidebarOpen}
+                onClick={() => setSidebarOpen(!sidebarOpen)}
+            />
+
             <Sidebar
                 xEq={xEq} setXEq={setXEq}
                 yEq={yEq} setYEq={setYEq}
                 zEq={zEq} setZEq={setZEq}
                 thickness={thickness} setThickness={setThickness}
                 color={color} setColor={setColor}
-                isPlaying={isPlaying} togglePlay={() => setIsPlaying(!isPlaying)}
+                isPlaying={isPlaying} togglePlay={togglePlay}
                 setPreset={handlePreset}
+                isOpen={sidebarOpen}
+                onClose={() => setSidebarOpen(false)}
             />
+
             <Scene
                 xEq={xEq}
                 yEq={yEq}
                 zEq={zEq}
                 thickness={thickness}
+                setThickness={setThickness}
                 color={color}
+                setColor={setColor}
                 growth={growth}
+                isPlaying={isPlaying}
+                togglePlay={togglePlay}
+                setPreset={handlePreset}
+                isFullscreen={isFullscreen}
+                setIsFullscreen={setIsFullscreen}
             />
         </div>
     );
