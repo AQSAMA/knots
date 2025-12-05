@@ -177,7 +177,7 @@ body {
 }
 
 .canvas-container.fullscreen .fullscreen-toggle-btn {
-  bottom: 30%;
+  bottom: 80px;
   background: rgba(0, 0, 0, 0.5);
   color: white;
   border-color: rgba(255, 255, 255, 0.3);
@@ -194,7 +194,7 @@ body {
 /* Floating Controls */
 .floating-controls {
   position: fixed;
-  bottom: 80px;
+  bottom: 15%;
   left: 20px;
   z-index: 600;
 }
@@ -399,8 +399,8 @@ body {
 /* Mobile fullscreen adjustments */
 @media (max-width: 768px) {
   .canvas-container.fullscreen .fullscreen-toggle-btn {
-    left: 70px;
-    bottom: 70px;
+    left: 20px;
+    bottom: 140px;
     transform: none;
     padding: 8px 14px;
     font-size: 12px;
