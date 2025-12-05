@@ -106,8 +106,11 @@ const App: React.FC = () => {
 
             <Scene
                 xEq={xEq}
+                setXEq={setXEq}
                 yEq={yEq}
+                setYEq={setYEq}
                 zEq={zEq}
+                setZEq={setZEq}
                 thickness={thickness}
                 setThickness={setThickness}
                 color={color}

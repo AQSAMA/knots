@@ -121,13 +121,14 @@ body {
 }
 
 .canvas-container.square .canvas-wrapper {
+  position: relative;
   width: min(100%, calc(100vh - 80px));
   aspect-ratio: 1;
   border: var(--border-width) solid var(--primary-color);
   box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--primary-color);
   background: white;
   border-radius: 4px;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .canvas-container.fullscreen {
@@ -141,32 +142,34 @@ body {
 }
 
 .canvas-container.fullscreen .canvas-wrapper {
+  position: relative;
   width: 100%;
   height: 100%;
   border: none;
   box-shadow: none;
   border-radius: 0;
+  overflow: visible;
 }
 
 /* Fullscreen Toggle Button */
 .fullscreen-toggle-btn {
   position: absolute;
-  bottom: 24px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 20px;
-  background: rgba(255, 255, 255, 0.85);
+  gap: 6px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.9);
   border: 2px solid var(--primary-color);
-  border-radius: 24px;
+  border-radius: 20px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   backdrop-filter: blur(8px);
   transition: all 0.2s ease;
-  z-index: 10;
+  z-index: 510;
 }
 
 .fullscreen-toggle-btn:hover {
@@ -174,6 +177,7 @@ body {
 }
 
 .canvas-container.fullscreen .fullscreen-toggle-btn {
+  bottom: 30%;
   background: rgba(0, 0, 0, 0.5);
   color: white;
   border-color: rgba(255, 255, 255, 0.3);
@@ -218,13 +222,56 @@ body {
   position: absolute;
   bottom: 54px;
   left: 0;
-  padding: 12px;
-  min-width: 160px;
+  padding: 14px;
+  min-width: 220px;
+  max-width: 280px;
+  max-height: 70vh;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: 12px;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(8px);
+}
+
+.panel-header {
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.equation-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.equation-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.eq-label {
+  font-weight: bold;
+  font-size: 12px;
+  min-width: 16px;
+}
+
+.eq-input {
+  flex: 1;
+  padding: 6px 8px;
+  font-family: monospace;
+  font-size: 12px;
+  border: 2px solid var(--primary-color);
+  background: white;
+  outline: none;
+}
+
+.eq-input:focus {
+  background: #ffffcc;
 }
 
 .control-btn {
@@ -261,8 +308,8 @@ body {
 
 .preset-btn {
   flex: 1;
-  padding: 8px;
-  font-size: 14px;
+  padding: 6px 4px;
+  font-size: 11px;
   font-weight: bold;
   border: 2px solid var(--primary-color);
   background: white;
@@ -271,6 +318,10 @@ body {
 
 .preset-btn:hover {
   background: var(--accent-color);
+}
+
+.control-btn {
+  font-size: 14px;
 }
 
 .control-slider {
@@ -336,17 +387,32 @@ body {
   }
 }
 
-/* Fullscreen mode hides sidebar toggle on desktop */
+/* Fullscreen mode hides sidebar and toggle button */
 .fullscreen-mode .sidebar {
   display: none;
 }
 
 .fullscreen-mode .floating-toggle-btn {
-  z-index: 1000;
+  display: none;
 }
 
+/* Mobile fullscreen adjustments */
 @media (max-width: 768px) {
-  .fullscreen-mode .sidebar.open {
-    display: flex;
+  .canvas-container.fullscreen .fullscreen-toggle-btn {
+    left: 70px;
+    bottom: 70px;
+    transform: none;
+    padding: 8px 14px;
+    font-size: 12px;
+  }
+
+  .floating-controls {
+    left: 12px;
+    bottom: 70px;
+  }
+
+  .floating-controls-panel {
+    max-width: 260px;
+    max-height: 60vh;
   }
 }
