@@ -1,0 +1,102 @@
+$ vite build
+vite v7.3.1 building ssr environment for production...
+transforming...
+3:21:20 PM [vite-plugin-svelte] src/lib/components/UI/Sidebar.svelte:106:5 A form label must be associated with a control
+https://svelte.dev/e/a11y_label_has_associated_control
+104: 
+105:         <div class="space-y-1">
+106:           <label class="block text-xs">Color</label>
+                                                         ^
+107:           <div class="flex items-center gap-2">
+108:             <input
+"Camera", "SpriteMaterial", "Texture", "EquirectangularReflectionMapping", "ReplaceStencilOp", "AlwaysStencilFunc", "Material" and "WireframeGeometry" are imported from external module "three" but never used in "node_modules/@threlte/extras/dist/hooks/useViewport.js", "node_modules/@threlte/extras/dist/components/HTML/utils.js", "node_modules/@threlte/extras/dist/components/AnimatedSpriteMaterial/AnimatedSpriteMaterial.svelte", "node_modules/@threlte/extras/dist/components/Decal/Decal.svelte", "node_modules/@threlte/extras/dist/components/MeshRefractionMaterial/MeshRefractionMaterial.svelte", "node_modules/@threlte/extras/dist/components/environment/Environment/Environment.svelte", "node_modules/@threlte/extras/dist/components/Mask/Mask.svelte" and "node_modules/@threlte/extras/dist/components/Wireframe/Wireframe.svelte".
+"DecalGeometry" is imported from external module "three/examples/jsm/geometries/DecalGeometry.js" but never used in "node_modules/@threlte/extras/dist/components/Decal/Decal.svelte".
+"ThreePerf" is imported from external module "three-perf" but never used in "node_modules/@threlte/extras/dist/components/PerfMonitor/PerfMonitor.svelte".
+"preloadFont" is imported from external module "troika-three-text" but never used in "node_modules/@threlte/extras/dist/components/Text/Text.svelte".
+✓ 370 modules transformed.
+rendering chunks...
+vite v7.3.1 building client environment for production...
+transforming...
+3:21:24 PM [vite-plugin-svelte] src/lib/components/UI/Sidebar.svelte:106:5 A form label must be associated with a control
+https://svelte.dev/e/a11y_label_has_associated_control
+104: 
+105:         <div class="space-y-1">
+106:           <label class="block text-xs">Color</label>
+                                                         ^
+107:           <div class="flex items-center gap-2">
+108:             <input
+✓ 1505 modules transformed.
+rendering chunks...
+computing gzip size...
+.svelte-kit/output/client/_app/version.json                           0.03 kB │ gzip:   0.05 kB
+.svelte-kit/output/client/.vite/manifest.json                         3.46 kB │ gzip:   0.66 kB
+.svelte-kit/output/client/_app/immutable/assets/2.C_AO4nNd.css        0.14 kB │ gzip:   0.10 kB
+.svelte-kit/output/client/_app/immutable/assets/0.Bk-RMNbI.css      133.57 kB │ gzip:  15.14 kB
+.svelte-kit/output/client/_app/immutable/chunks/BAkk0FQP.js           0.04 kB │ gzip:   0.06 kB
+.svelte-kit/output/client/_app/immutable/entry/start.XiLECqJk.js      0.08 kB │ gzip:   0.09 kB
+.svelte-kit/output/client/_app/immutable/nodes/1.CdqCevW7.js          1.02 kB │ gzip:   0.59 kB
+.svelte-kit/output/client/_app/immutable/chunks/DR2dDLdt.js           1.06 kB │ gzip:   0.61 kB
+.svelte-kit/output/client/_app/immutable/chunks/CiaMZe3a.js           1.08 kB │ gzip:   0.61 kB
+.svelte-kit/output/client/_app/immutable/chunks/CbqNXuKU.js           1.38 kB │ gzip:   0.76 kB
+.svelte-kit/output/client/_app/immutable/chunks/DV1BvQ--.js           1.53 kB │ gzip:   0.67 kB
+.svelte-kit/output/client/_app/immutable/nodes/0.BCLTGX6q.js          2.77 kB │ gzip:   1.21 kB
+.svelte-kit/output/client/_app/immutable/chunks/Be6FmqnC.js           3.46 kB │ gzip:   1.57 kB
+.svelte-kit/output/client/_app/immutable/entry/app.p8BrwG4c.js        5.33 kB │ gzip:   2.49 kB
+.svelte-kit/output/client/_app/immutable/chunks/vB3mpkEf.js           5.72 kB │ gzip:   2.60 kB
+.svelte-kit/output/client/_app/immutable/chunks/CdsLRmet.js          21.83 kB │ gzip:   8.77 kB
+.svelte-kit/output/client/_app/immutable/chunks/DcTYNVJ1.js          25.67 kB │ gzip:  10.16 kB
+.svelte-kit/output/client/_app/immutable/nodes/2.DrnyZcpY.js      1,465.29 kB │ gzip: 408.58 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 11.24s
+.svelte-kit/output/server/.vite/manifest.json                           2.93 kB
+.svelte-kit/output/server/_app/immutable/assets/_page.C_AO4nNd.css      0.14 kB
+.svelte-kit/output/server/_app/immutable/assets/_layout.gxKnRCj7.css  133.47 kB
+.svelte-kit/output/server/chunks/false.js                               0.04 kB
+.svelte-kit/output/server/internal.js                                   0.33 kB
+.svelte-kit/output/server/chunks/environment.js                         0.62 kB
+.svelte-kit/output/server/chunks/utils.js                               1.15 kB
+.svelte-kit/output/server/entries/fallbacks/error.svelte.js             1.36 kB
+.svelte-kit/output/server/entries/pages/_layout.svelte.js               2.48 kB
+.svelte-kit/output/server/chunks/index.js                               2.77 kB
+.svelte-kit/output/server/chunks/exports.js                             5.59 kB
+.svelte-kit/output/server/remote-entry.js                              18.28 kB
+.svelte-kit/output/server/chunks/shared.js                             18.45 kB
+.svelte-kit/output/server/chunks/index2.js                             28.91 kB
+.svelte-kit/output/server/chunks/internal.js                           28.97 kB
+.svelte-kit/output/server/entries/pages/_page.svelte.js                43.43 kB
+.svelte-kit/output/server/chunks/context.js                            53.15 kB
+.svelte-kit/output/server/index.js                                    126.91 kB
+✓ built in 15.65s
+
+Run npm run preview to preview your production build locally.
+
+> Using @sveltejs/adapter-static
+  @sveltejs/adapter-static: all routes must be fully prerenderable, but found the following routes that are dynamic:
+    - src/routes/
+  
+  You have the following options:
+    - set the `fallback` option — see https://svelte.dev/docs/kit/single-page-apps#usage for more info.
+    - add `export const prerender = true` to your root `+layout.js/.ts` or `+layout.server.js/.ts` file. This will try to prerender all pages.
+    - add `export const prerender = true` to any `+server.js/ts` files that are not fetched by page `load` functions.
+  
+    - pass `strict: false` to `adapter-static` to ignore this error. Only do this if you are sure you don't need the routes in question in your final app, as they will be unavailable. See https://github.com/sveltejs/kit/tree/main/packages/adapter-static#strict for more info.
+  
+  If this doesn't help, you may need to use a different adapter. @sveltejs/adapter-static can only be used for sites that don't need a server for dynamic rendering, and can run on just a static file server.
+  See https://svelte.dev/docs/kit/page-options#prerender for more details
+error during build:
+Error: Encountered dynamic routes
+    at adapt (file:///home/ahmed/1dev/svelte_knots/node_modules/@sveltejs/adapter-static/index.js:38:12)
+    at adapt (file:///home/ahmed/1dev/svelte_knots/node_modules/@sveltejs/kit/src/core/adapt/index.js:41:8)
+    at finalise (file:///home/ahmed/1dev/svelte_knots/node_modules/@sveltejs/kit/src/exports/vite/index.js:1337:13)
+    at async Object.handler (file:///home/ahmed/1dev/svelte_knots/node_modules/@sveltejs/kit/src/exports/vite/index.js:1368:5)
+    at async PluginDriver.hookParallel (file:///home/ahmed/1dev/svelte_knots/node_modules/rollup/dist/es/shared/node-entry.js:22431:17)
+    at async Object.close (file:///home/ahmed/1dev/svelte_knots/node_modules/rollup/dist/es/shared/node-entry.js:23450:13)
+    at async buildEnvironment (file:///home/ahmed/1dev/svelte_knots/node_modules/vite/dist/node/chunks/config.js:33555:15)
+    at async Object.build (file:///home/ahmed/1dev/svelte_knots/node_modules/vite/dist/node/chunks/config.js:33900:19)
+    at async Object.buildApp (file:///home/ahmed/1dev/svelte_knots/node_modules/vite/dist/node/chunks/config.js:33897:153)
+    at async CAC.<anonymous> (file:///home/ahmed/1dev/svelte_knots/node_modules/vite/dist/node/cli.js:629:3)
+error: script "build" exited with code 1
