@@ -1,17 +1,13 @@
 # Current Status
 
-**Date:** 2026-01-23
-**Project:** Svelte Knots (Endless Tools Style)
-**Tech Stack:** Svelte 5, Three.js (Threlte), Tailwind CSS, Bun, Vite.
+**Date:** 2026-02-06
+**Project:** Knots UI
+**Focus:** Settings overlay visibility
 
-## System State
--   **UI**: Bottom-stage consolidated layout (Complete).
--   **Phase**: **Design Upgrade 2.0**.
-    -   Implementing Bloom/Post-processing.
-    -   Adding Chrome/Liquid materials.
-    -   Adding Gradient Textures.
+## Summary
+- Preparing to adjust the settings panel so equation inputs remain visible without covering the knot.
 
 ## Next Steps
-1.  Update `knotState` with material modes.
-2.  Add `EffectComposer` to Scene.
-3.  Update Knot component with advanced materials.
+1. Update overlay positioning/scrolling behavior for the settings panel.
+2. Capture a UI screenshot for verification.
+3. Run lint/check/build scripts after changes.
