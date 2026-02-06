@@ -1,6 +1,8 @@
-# sv
+# Svelte Knots
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A 3D knot visualization tool built with SvelteKit, Three.js, and Threlte.
+
+**Live Demo:** [https://aqsama.github.io/knots/](https://aqsama.github.io/knots/)
 
 ## Creating a project
 
@@ -40,3 +42,20 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+
+## Deployment & PR Previews
+
+This project is automatically deployed to GitHub Pages on every push to the `master` branch.
+
+### Pull Request Previews
+
+When you create a pull request, a preview deployment is automatically created at:
+```
+https://aqsama.github.io/knots/pr-preview/pr-{number}/
+```
+
+- Preview URLs are posted as comments on the PR
+- Previews are automatically updated when you push new changes
+- Previews are automatically cleaned up when the PR is closed or merged
+
+This allows you to see the actual rendered site before merging changes!

@@ -5,10 +5,15 @@ on:
     branches: 'master'
 
 jobs:
-  build_site:
+  build_and_deploy:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
       
     steps:
       - name: Checkout
@@ -28,22 +33,32 @@ jobs:
         run: |
           bun run build
 
-      - name: Upload Artifacts
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: 'build/'
-
-  deploy:
-    needs: build_site
-    runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    steps:
-      - name: Deploy
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Deploy to GitHub Pages
+        run: |
+          # Configure git
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Clone the gh-pages branch or create it if it doesn't exist
+          git clone --depth=1 --branch gh-pages https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git gh-pages-repo || {
+            echo "gh-pages branch doesn't exist, creating it..."
+            mkdir gh-pages-repo
+            cd gh-pages-repo
+            git init
+            git checkout -b gh-pages
+            git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+            cd ..
+          }
+          
+          cd gh-pages-repo
+          
+          # Remove all files except pr-preview directory
+          find . -maxdepth 1 ! -name 'pr-preview' ! -name '.' ! -name '..' ! -name '.git' -exec rm -rf {} +
+          
+          # Copy the built files to root
+          cp -r ../build/* .
+          
+          # Commit and push
+          git add .
+          git commit -m "Deploy main site from master branch" || echo "No changes to commit"
+          git push origin gh-pages
