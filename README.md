@@ -50,6 +50,7 @@ This project is automatically deployed to GitHub Pages on every push to the `mas
 ### Pull Request Previews
 
 When you create a pull request, a preview deployment is automatically created at:
+
 ```
 https://aqsama.github.io/knots/pr-preview/pr-{number}/
 ```

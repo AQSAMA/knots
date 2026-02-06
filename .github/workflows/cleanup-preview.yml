@@ -10,7 +10,7 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
-      
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -20,12 +20,12 @@ jobs:
           # Configure git
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          
+
           # Clone the gh-pages branch
           git clone --depth=1 --branch gh-pages https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git gh-pages-repo
-          
+
           cd gh-pages-repo
-          
+
           # Remove the PR preview directory
           if [ -d "pr-preview/pr-${{ github.event.number }}" ]; then
             rm -rf pr-preview/pr-${{ github.event.number }}
@@ -43,30 +43,32 @@ jobs:
           script: |
             const prNumber = context.payload.pull_request.number;
             const repo = context.repo;
-            
+
             // Find existing preview comment
             const comments = await github.rest.issues.listComments({
               owner: repo.owner,
               repo: repo.repo,
               issue_number: prNumber,
             });
-            
+
             const botComment = comments.data.find(comment => 
               comment.user.type === 'Bot' && 
               comment.body.includes('PR Preview')
             );
-            
+
             if (botComment) {
               // Update existing comment to indicate cleanup
+              const bodyText = `## 🧹 PR Preview Cleaned Up
+
+            The preview deployment for this PR has been removed as the PR is now closed.
+
+            ---
+            *This PR was ${context.payload.pull_request.merged ? 'merged' : 'closed without merging'}.*`;
+              
               await github.rest.issues.updateComment({
                 owner: repo.owner,
                 repo: repo.repo,
                 comment_id: botComment.id,
-                body: `## 🧹 PR Preview Cleaned Up
-            
-The preview deployment for this PR has been removed as the PR is now closed.
-            
----
-*This PR was ${context.payload.pull_request.merged ? 'merged' : 'closed without merging'}.*`,
+                body: bodyText,
               });
             }
