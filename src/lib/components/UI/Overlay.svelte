@@ -76,10 +76,10 @@
 {#if activeStage === 'customize'}
 	<div
 		transition:fly={{ y: 20, duration: 300 }}
-		class="fixed bottom-28 left-1/2 z-40 w-full max-w-lg -translate-x-1/2 px-4"
+		class="fixed bottom-28 right-4 z-40 w-full max-w-xs sm:right-6 sm:max-w-sm"
 	>
 		<div
-			class="flex flex-col gap-4 rounded-2xl border border-white/10 bg-black/80 p-5 shadow-2xl backdrop-blur-2xl"
+			class="flex max-h-[70vh] flex-col gap-4 overflow-y-auto rounded-2xl border border-white/10 bg-black/80 p-5 shadow-2xl backdrop-blur-2xl"
 		>
 			<div class="flex items-center justify-between">
 				<span class="text-xs font-bold tracking-widest text-slate-400 uppercase">Customize</span>

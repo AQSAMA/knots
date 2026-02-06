@@ -1,17 +1,14 @@
 # Current Status
 
-**Date:** 2026-01-23
-**Project:** Svelte Knots (Endless Tools Style)
-**Tech Stack:** Svelte 5, Three.js (Threlte), Tailwind CSS, Bun, Vite.
+**Date:** 2026-02-06
+**Project:** Knots UI
+**Focus:** Separate equations section
 
-## System State
--   **UI**: Bottom-stage consolidated layout (Complete).
--   **Phase**: **Design Upgrade 2.0**.
-    -   Implementing Bloom/Post-processing.
-    -   Adding Chrome/Liquid materials.
-    -   Adding Gradient Textures.
+## Summary
+- Received feedback to create a dedicated equations section separate from the settings panel.
+- Baseline lint/check/build runs completed; lint/check still report existing issues.
 
 ## Next Steps
-1.  Update `knotState` with material modes.
-2.  Add `EffectComposer` to Scene.
-3.  Update Knot component with advanced materials.
+1. Split the customize overlay into equations and settings sections.
+2. Capture a UI screenshot for verification.
+3. Re-run lint/check/build scripts after changes.
