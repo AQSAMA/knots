@@ -1,6 +1,6 @@
 # To-Do List
 
-- [x] Review current settings overlay placement and overlap with the knot.
-- [x] Adjust settings overlay positioning/scrolling so equations remain visible without covering the knot.
-- [x] Capture a UI screenshot of the updated settings overlay.
-- [x] Run lint/check/build scripts to verify the changes.
+- [ ] Review the customize overlay layout and identify where to split equations from settings.
+- [ ] Create a dedicated equations section and a separate settings panel with responsive placement.
+- [ ] Capture a UI screenshot of the updated layout.
+- [ ] Run lint/check/build scripts after changes.
