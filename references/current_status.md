@@ -5,9 +5,8 @@
 **Focus:** Settings overlay visibility
 
 ## Summary
-- Preparing to adjust the settings panel so equation inputs remain visible without covering the knot.
+- Repositioned the settings panel to a right-aligned, scrollable layout to keep the knot visible while editing equations.
+- Captured the updated overlay screenshot and ran lint/check/build scripts (lint/check still report existing issues).
 
 ## Next Steps
-1. Update overlay positioning/scrolling behavior for the settings panel.
-2. Capture a UI screenshot for verification.
-3. Run lint/check/build scripts after changes.
+1. Address review feedback if needed.
