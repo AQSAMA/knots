@@ -7,7 +7,7 @@ name: Deploy PR Preview to GitHub Pages
 on:
   pull_request:
     types: [opened, synchronize, reopened]
-    branches: 'master'
+    branches: [master]
 
 jobs:
   build_preview:
