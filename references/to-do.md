@@ -1,6 +1,31 @@
-# To-Do List
+# To-Do List: Pull Request Preview Deployment
 
-- [ ] Review the customize overlay layout and identify where to split equations from settings.
-- [ ] Create a dedicated equations section and a separate settings panel with responsive placement.
-- [ ] Capture a UI screenshot of the updated layout.
-- [ ] Run lint/check/build scripts after changes.
+## Phase 1: Planning and Understanding ✅
+- [x] Analyze existing deployment workflow
+- [x] Understand SvelteKit configuration and base path handling
+- [x] Create implementation plan
+- [x] Verify build process works with dynamic base paths
+
+## Phase 2: Implementation ✅
+- [x] Create `.github/workflows/preview-deploy.yml` workflow file
+  - [x] Set up PR event triggers (opened, synchronize, reopened)
+  - [x] Configure Bun installation and dependency installation
+  - [x] Set up build step with dynamic BASE_PATH for PR previews
+  - [x] Configure artifact upload for preview builds
+  - [x] Set up deployment to preview environment
+  - [x] Add comprehensive comments explaining the workflow
+  
+- [x] Update README.md with preview deployment documentation
+  - [x] Add section explaining how PR previews work
+  - [x] Document how to access preview URLs
+  - [x] Note location of preview URLs in GitHub PR interface
+
+## Phase 3: Testing and Validation ✅
+- [x] Verify the workflow file syntax is correct (YAML validated)
+- [x] Verify existing build configuration supports dynamic BASE_PATH
+- [x] Confirmed zero impact on production workflow
+
+## Phase 4: Documentation and Finalization ✅
+- [x] Add comprehensive review summary
+- [x] Final verification of all changes
+- [x] All tasks completed successfully
