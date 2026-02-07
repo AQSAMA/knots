@@ -1,0 +1,59 @@
+name: Deploy PR Preview to GitHub Pages
+
+# This workflow builds and deploys PR previews to GitHub Pages
+# Each PR gets its own preview environment at: https://AQSAMA.github.io/knots/pr-{PR_NUMBER}/
+# Preview URLs are automatically posted in the PR's "Environments" section
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: 'master'
+
+jobs:
+  build_preview:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Build preview with PR-specific base path
+        env:
+          # Set base path to include PR number for isolated preview URL
+          BASE_PATH: '/${{ github.event.repository.name }}/pr-${{ github.event.pull_request.number }}'
+        run: |
+          echo "Building preview for PR #${{ github.event.pull_request.number }}"
+          echo "Preview will be available at: https://${{ github.repository_owner }}.github.io${{ env.BASE_PATH }}/"
+          bun run build
+
+      - name: Upload preview artifacts
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'build/'
+
+  deploy_preview:
+    needs: build_preview
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      # Each PR gets its own preview environment
+      # This keeps previews isolated from production and from each other
+      name: preview-pr-${{ github.event.pull_request.number }}
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy preview to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
